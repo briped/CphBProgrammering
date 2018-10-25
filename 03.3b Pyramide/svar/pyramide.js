@@ -1,32 +1,25 @@
-/**
- * Created by Christian on 06-02-2018.
- */
-let pyramidHeight = Number(prompt("Hvor høj skal pyramiden være?"));
+let pyramidHeight = Number(prompt('Hvor høj skal pyramiden være?'));
 
-// Beregn bredden på pyramidens base.
+// Beregn bredden på pyramidens base. Skal bruges senere.
 let pyramidWidth = (pyramidHeight * 2) - 1;
 
 // Loop gennem hvert lag af pyramiden.
 for (let l = 1; l <= pyramidHeight; l++) {
-    // Sørg for at at padding og bricks altid starter med intet, så hvert lag beregnes/bygges påny.
+    // Nulstil padding og bricks ved starten af hver iteration.
     let padding = '';
     let bricks = '';
 
-    // Beregn antal bricks nødvendigt i pyramidelaget.
+    // Beregn bricks nødvendigt i layer.
     let numBricks = (l * 2) - 1;
 
-    // Beregn padding/luft der skal være på hver side af pyramidens lag.
+    // Beregn padding på hver side af pyramiden i layer.
     let numPadding = ((pyramidWidth - numBricks) === 0) ? 0 : (pyramidWidth - numBricks) / 2;
 
-    // Lav padding/luften på hver side af pyramiden.
-    for (let p = 0; p < numPadding; p++) {
-        padding += ' '; // Er faktisk lidt overrasket over at den skriver mellemrum korrekt i HTML, havde troet det var nødvendigt med en &nbsp;
-    }
-    // Lav selve pyramidens lag.
-    for (let b = 0; b < (l * 2) - 1; b++) {
-        bricks += 'A';
-    }
-    // Sammensæt pyramidens lag med padding/luft.
+    // Lav padding/luften på hver side af pyramiden. Gider ikke en løkke når nu det kan gøres simplere med .repeat().
+    padding = ' '.repeat(numPadding); // Overrasket over at det lykkedes med mellemrum i HTML, eftersom jeg mente det ville kræve &nbsp; Vælger i stedet for punktum fordi det er pænere.
+    // Lav selve pyramidens lag. Gider ikke en løkke når nu det kan gøres simplere med .repeat().
+    bricks = 'A'.repeat((l * 2) - 1);
+    // Sammensæt layer.
     let layer = padding + bricks + padding;
     // Skriv til konsollen
     console.log(layer);
