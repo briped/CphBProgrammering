@@ -1,13 +1,7 @@
-/**
- * Created by Christian on 06-02-2018.
- */
-
 var canvas = document.getElementById("mycanvas");
 var ctx = canvas.getContext('2d');
 let antalCirkler = Number(prompt("Indtast antal cirkler"));
-let i;
-
-for (i=1; i<=antalCirkler; i++) {
+for (let i = 1; i <= antalCirkler; i++) {
     circle(10 * (i * 10), 10 * (i * 10), 10, 'red', 'blue')
 }
 
