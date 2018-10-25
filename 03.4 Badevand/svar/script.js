@@ -1,12 +1,6 @@
-/**
- * Created by Christian on 18-02-2018.
- */
-
-//TODO tilføj data!
-let badeVand = [];
-
-//TODO tæl frostdage og udskriv
-
-
-
-
+let temp = [-1, 1, 1, 1, 2, 0, 1 , -0.1, 0.1, -20, -4, 10];
+let subZero = 0;
+for (let i = 0; i < temp.length; i++) {
+    subZero += (temp[i] < 0) ? 1 : 0;
+}
+document.write(subZero);
