@@ -1,18 +1,16 @@
-/**
- * Created by Christian on 14-02-2018.
- */
-let solskin = prompt("Skinner solen?");
-if (solskin.toLowerCase() === "ja" || solskin.toLowerCase() ==="j"){
-    solskin = true;
-} else {
-    solskin = false;
-}
+let time = Number(prompt('Hvad er klokken (i hele timer)'));
+let sunny = prompt('Skinner solen?');
+let rainy = prompt('Regner det?');
 
-let tidspunkt = Number(prompt("Hvad er klokken (i hele timer)"));
+let optYes = ['y', 'j', 'ja', 'yes'];
+let highSun = (time > 12 && time < 15) ? true : false;
 
-if ((tidspunkt > 12 && tidspunkt < 15) || solskin) {
-    document.write("Du har brug for din paraply!");
+sunny = (optYes.indexOf(sunny) >= 0) ? true : false;
+rainy = (optYes.indexOf(rainy) >= 0) ? true : false;
+
+if (rainy || (sunny && highSun)) {
+    document.write('Du har brug for din paraply!');
 }
 else {
-    document.write("Du har ikke brug for din paraply!");
+    document.write('Du har ikke brug for din paraply!');
 }
