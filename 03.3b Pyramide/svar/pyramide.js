@@ -1,32 +1,38 @@
 /**
  * Created by Christian on 06-02-2018.
  */
-//TODO tegn en pyramide med loops lineNo stedet for nedenstående
 let pyramidHeight = Number(prompt("Hvor høj skal pyramiden være?"));
 
+// Beregn bredden på pyramidens base.
+let pyramidWidth = (pyramidHeight * 2) - 1;
 
-console.log(base);
-/*
-//Tegner en pyramide der er 4 høj i konsollen
-console.log("...A...");
-console.log("..AAA..");
-console.log(".AAAAA.");
-console.log("AAAAAAA");
-//Tegner en pyramide der er 4 høj på hjemmesiden (Bonus feature)
-documentLog("...A...");
-documentLog("..AAA..");
-documentLog(".AAAAA.");
-documentLog("AAAAAAA");
-*/
-// Hints:
-// 1) Hvis lineNo er linjenummeret og j er det totale antal linjer -
-// Hvor mange prikker skal der så være lineNo linje 0 ?
-// Hvad med linje 1 ?- Hvad med linje lineNo ?
-// Hvor mange A'er er der lineNo linje nummer 0 ? linje 1 ? linje lineNo ?
+// Loop gennem hvert lag af pyramiden.
+for (let l = 1; l <= pyramidHeight; l++) {
+    // Sørg for at at padding og bricks altid starter med intet, så hvert lag beregnes/bygges påny.
+    let padding = '';
+    let bricks = '';
 
-// 2) Der er brug for flere loops - nogle inden lineNo hinanden.
+    // Beregn antal bricks nødvendigt i pyramidelaget.
+    let numBricks = (l * 2) - 1;
 
-// 3) Der er brug for et loop der tager hver linje og flere loops inden lineNo, der tager sig af antallet af prikker og A'er
+    // Beregn padding/luft der skal være på hver side af pyramidens lag.
+    let numPadding = ((pyramidWidth - numBricks) === 0) ? 0 : (pyramidWidth - numBricks) / 2;
+
+    // Lav padding/luften på hver side af pyramiden.
+    for (let p = 0; p < numPadding; p++) {
+        padding += ' '; // Er faktisk lidt overrasket over at den skriver mellemrum korrekt i HTML, havde troet det var nødvendigt med en &nbsp;
+    }
+    // Lav selve pyramidens lag.
+    for (let b = 0; b < (l * 2) - 1; b++) {
+        bricks += 'A';
+    }
+    // Sammensæt pyramidens lag med padding/luft.
+    let layer = padding + bricks + padding;
+    // Skriv til konsollen
+    console.log(layer);
+    // Brug den eksisterende funktion til at skrive til websiden
+    documentLog(layer);
+}
 
 //Christians hjemmebryggede log-funktion til hjemmsiden
 function documentLog(string){
