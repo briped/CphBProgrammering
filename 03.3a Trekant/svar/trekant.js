@@ -1,12 +1,9 @@
-/**
- * Created by Christian on 06-02-2018.
- */
-
 let height = Number(prompt("Hvor høj skal trekanten være?"));
 
-for (let i = 1; i <= height; i++) {
-    console.log('o'.repeat(i));
-    documentLog('o'.repeat(i))
+for (let i = 0; i < height; i++) {
+    let layer = (i < 1) ? '\\' : 'o'.repeat(i) + '\\';
+    console.log(layer);
+    documentLog(layer);
 }
 
 //Christians hjemmebryggede log-funktion til hjemmsiden
